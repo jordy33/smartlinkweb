@@ -1,0 +1,8 @@
+[Unit]
+Description=Smartlink Webserver
+
+[Service]
+WorkingDirectory=/root/smartlinkweb
+ExecStart=/root/smartlinkweb/smartlinkweb.py
+[Install]
+WantedBy=multi-user.target 
