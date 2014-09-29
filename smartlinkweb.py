@@ -27,11 +27,14 @@ class StringGeneratorWebService(object):
     exposed = True
 
     @cherrypy.tools.accept(media='text/plain')
-    def CTL(self):
+    def DSTART(self):
         pexpect.run('systemctl start smartlinkhub.service')
 
-    def SEC(self):
+    def DSTOP(self):
         pexpect.run('systemctl stop smartlinkhub.service')
+        
+    def DSTATUS(self):
+        return pexpect.run('systemctl status smartlinkhub.service')
 
     def GET(self,parametro,para2):
         conn=sqlite3.connect(DB_STRING)

@@ -13,7 +13,7 @@
 
          $("#stopdaemon").click(function(e) {
            $.ajax({
-              type: "SEC",
+              type: "DSTOP",
               url: "/generator"
            })
            .done(function() {
@@ -24,11 +24,22 @@
 
          $("#startdaemon").click(function(e) {
            $.ajax({
-              type: "CTL",
+              type: "DSTART",
               url: "/generator"
            })
            .done(function() {
               alert("Daemon Started");
+           });
+           e.preventDefault();
+         });
+
+         $("#statusdaemon").click(function(e) {
+           $.ajax({
+              type: "DSTATUS",
+              url: "/generator"
+           })
+           .done(function(string) {
+              alert("Daemon Status: "+string);
            });
            e.preventDefault();
          });
@@ -213,17 +224,15 @@
         <img src='/images/logo.jpg'>
         <h1 class="remove-bottom" style="margin-top: 40px">Welcome to Diincasa SmartLink</h1>
         <h2>Control Panel</h2>
-        <hr>
-        <h5>The control panel is the initial setup for the bluetooth low energy slaves addesses that will be connected to the hub.
+        <hr><h5>The control panel is the initial setup for the bluetooth low energy slaves addesses that will be connected to the hub.
             Before a new entry or modifying any bluetooth address the user must stop the Hub-Daemon.
             Then the user must insert o update the addresses using the write button. The read button also reads the data in the sql data base.
             When you finish writing or updating the addresses, you must re-start the Hub Daemon again.
-        </h5>
-<hr>
-     <label for"regularInput">Hub Daemon control</label>
+            </h5><hr><label for"regularInput">Hub Daemon control</label>
      <div id="daemoncontrol">
          <button id="startdaemon">Start</button>
          <button id="stopdaemon">Stop</button>
+         <button id="statusdaemon">Status</button>
      </div>
      <hr>
     <label for"regularInput">Bluetooth Address 1:</label>
