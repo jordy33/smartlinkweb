@@ -47,4 +47,5 @@ pip install cherrypy
 pip install pexpect
 
 Copy the file smarlinkweb.service to /etc/systemd/system
-chmod +x smartlinkweb.py
+
+And change permissions chmod +x smartlinkweb.py
