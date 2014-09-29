@@ -62,13 +62,6 @@ class StringGeneratorWebService(object):
             c.execute("DELETE FROM user_string WHERE session_id=?",
                       [1])
     
-    def MIO(self, state):
-        otra=state
-        print("Daemon Start:",otra)
-
-    def DAEMONSTOP(self):
-        print("Daemon Stop")
-
 def setup_database():
     """
     Create the `user_string` table in the database
