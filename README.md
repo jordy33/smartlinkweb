@@ -42,9 +42,13 @@ pacman -S bluez
 
 pacman -S bluez-utils
 
+pacman -S gcc
+
 pip install cherrypy
 
 pip install pexpect
+
+pip install psutil
 
 Copy the file smarlinkweb.service to /etc/systemd/system
 
